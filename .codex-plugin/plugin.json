@@ -1,15 +1,15 @@
 {
   "name": "memento",
   "version": "0.1.0",
-  "description": "Turns photos of a real memory into character, item, environment sheets, a base frame, and paste-ready Dreamina video prompts.",
+  "description": "Turns photos of a real memory into character, item, and environment sheets, a base frame, and paste-ready Dreamina video prompts.",
   "author": {
     "name": "Pan"
   },
   "skills": "./skills/",
   "interface": {
     "displayName": "memento",
-    "shortDescription": "Recreate a personal memory from photos as a short AI film with Dreamina prompts.",
-    "longDescription": "memento interviews the user, extracts reference sheets and base frames from personal photos, and writes paste-ready Dreamina (Seedance) video prompts.",
+    "shortDescription": "Turn memory photos into Dreamina prompts.",
+    "longDescription": "memento turns photos of a real memory into a resumable Codex project with visual inventory, adaptive interview, optional sheets or micro-edits, and paste-ready Dreamina/Seedance prompts.",
     "developerName": "Pan",
     "category": "Productivity",
     "capabilities": [

@@ -1,5 +1,7 @@
 interface:
   display_name: "memento"
-  short_description: "Recreate a personal memory from photos as a short AI film with reference sheets and Dreamina prompts."
-  brand_color: "#E85D75"
-  default_prompt: "Use $memento to recreate this memory from these photos as a short Dreamina film."
+  short_description: "Turn memory photos into Dreamina prompts."
+  default_prompt: "Use $memento to turn my memory photos into a short Dreamina film."
+
+policy:
+  allow_implicit_invocation: true
