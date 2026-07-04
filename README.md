@@ -6,21 +6,21 @@ memento turns photos of a real memory into a small, resumable Codex project: it 
 
 ## Install
 
-Marketplace install:
+memento is a plain Codex skill — clone the repo and copy the skill folder into your Codex skills directory:
 
 ```bash
-codex plugin marketplace add Lego1997/memento
-codex plugin add memento@memento
-```
-
-Manual fallback from this repository:
-
-```bash
+git clone https://github.com/Lego1997/memento
 mkdir -p ~/.agents/skills
-cp -R skills/memento ~/.agents/skills/
+cp -R memento/skills/memento ~/.agents/skills/
 ```
 
-Then start a fresh Codex conversation and invoke `$memento`, or ask naturally to turn your memory photos into a short Dreamina film.
+To receive future updates via `git pull`, symlink instead of copying:
+
+```bash
+ln -s "$(pwd)/memento/skills/memento" ~/.agents/skills/memento
+```
+
+For a single project only, copy the folder into that repo's `.agents/skills/` instead. Then start a fresh Codex conversation and invoke `$memento`, or ask naturally to turn your memory photos into a short Dreamina film.
 
 ## Requirements
 
