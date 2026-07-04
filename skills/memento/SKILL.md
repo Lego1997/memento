@@ -16,6 +16,7 @@ description: >-
 ## Operating Contract
 
 - Treat invocation as natural language, including implicit requests that match the description.
+- Prefer the `request_user_input` structured-question tool for every user decision throughout the flow — interview batches, inventory confirmation, consent asks, model/format choices, and sheet approvals; give each question 2–6 options with the recommended answer first, labeled "(Recommended)". Fall back to plain chat questions when the tool is unavailable in the current session, and never ask the same thing twice.
 - Keep all durable state in `memento/<slug>/memento.yaml` so any stage can resume or be skipped.
 - Reference source photos in place by default; ask explicit consent before any copy into `sources/`.
 - Ask explicit consent before sending selected photos to OpenAI image generation.
@@ -137,13 +138,13 @@ sheets/*
 3. Include people, distinguishing anchors, key items, environments, light, mood, and continuity anchors.
 4. Propose raw photos as the default identity reference when identity and wardrobe already match.
 5. Propose rendered sheets only for a named control problem, user-requested stylization, or missing/entangled visual evidence.
-6. Ask the user to confirm or correct the inventory.
+6. Ask the user to confirm or correct the inventory (structured ask: one question per contested row, or one confirm-all question when the table is clean).
 7. Update `sources`, `assets`, and `memory.current_stage` in `memento.yaml`.
 
 ## S2 Interview
 
 1. Read [references/interview-guide.md](references/interview-guide.md).
-2. Ask one numbered batch of at most five questions in chat.
+2. Ask the batch (at most five questions) through the `request_user_input` tool when available — one call, recommendations as first options; otherwise one numbered batch in chat.
 3. Skip anything the user already gave.
 4. Include recommendations or practical defaults in each question.
 5. Offer "surprise me" when the user wants delegated treatment.
@@ -157,7 +158,7 @@ sheets/*
 1. Read [references/sheet-craft.md](references/sheet-craft.md).
 2. Open S3 with a once-per-session capability probe before promising rendered sheets.
 3. Record the probe under `rendering.capability_probe` with a session identifier, timestamp, status, and notes.
-4. Ask for render-upload consent unless already recorded.
+4. Ask for render-upload consent unless already recorded (structured ask when the tool is available).
 5. Load the relevant local photo into visual context with `view_image` before any edit or reference render.
 6. Treat filesystem paths in prompts as unreliable input by themselves.
 7. Use the built-in image generation path as prompt-only: no exposed mask, seed, dimensions, model, or destination path.

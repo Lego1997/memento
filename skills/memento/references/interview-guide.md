@@ -3,9 +3,10 @@
 ## Host Note
 
 - Use this guide during S2 before sheet planning or Dreamina prompt writing.
-- Ask at most five questions as one numbered batch in chat.
-- Remember that Codex has no structured-question widget.
-- Ask in normal chat and wait for the user's answer.
+- Prefer the `request_user_input` structured-question tool when the session exposes it: one tool call carrying the whole batch (at most five questions).
+- Give each tool question 2–6 concrete options; put the recommended answer first and label it "(Recommended)"; rely on the tool's built-in custom option for free-text answers; use multi-select only when choices genuinely combine.
+- Let the memory narrative (Q1) arrive as free text — via the custom option or a plain chat follow-up.
+- Fall back to one numbered batch in normal chat when the tool is unavailable (not in the tool list, the current mode does not expose it, or the call fails) — never stall on a missing tool, and never ask the same questions twice.
 - Skip anything the user already stated.
 - Give every question a recommended answer or practical default.
 - Keep the batch short enough for the user to answer casually.
@@ -85,7 +86,8 @@
 
 ## Batch Template
 
-- Use this template after deleting already answered items:
+- Map each numbered item below to one `request_user_input` question: the recommendation becomes the first option "(Recommended)", plausible alternatives become the other options, and free text rides the custom option.
+- Use the numbered form verbatim as the chat fallback after deleting already answered items:
 
 1. What happened in this memory: key beats, when/where, and who matters? Recommendation: keep it to 3 visible beats and name only the people or objects Dreamina must preserve.
 2. Should the film be faithful, or an idealized dream version? Recommendation: use faithful if the photos already match; use dream version if the feeling matters more than literal accuracy. Also name the must-happen beat and final emotion.

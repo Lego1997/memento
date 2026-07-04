@@ -45,7 +45,7 @@ Cowart currently has no license, so memento integrates with it behaviorally and 
 
 ## Usage
 
-Start with `$memento` and the local paths to the photos for one memory. memento creates or resumes `memento/<slug>/memento.yaml`, inventories the visible evidence, asks one compact interview batch, chooses raw photos versus rendered sheets only where they solve a continuity problem, optionally runs a Cowart or chat micro-edit loop, and writes `memento/<slug>/dreamina_prompts.md` with upload tables and prompt blocks for Dreamina. See the sanitized fictional walkthrough in [examples/walkthrough.md](examples/walkthrough.md).
+Start with `$memento` and the local paths to the photos for one memory. memento creates or resumes `memento/<slug>/memento.yaml`, inventories the visible evidence, asks one compact interview batch (through Codex's structured Ask User Questions UI when your session supports it, plain chat otherwise), chooses raw photos versus rendered sheets only where they solve a continuity problem, optionally runs a Cowart or chat micro-edit loop, and writes `memento/<slug>/dreamina_prompts.md` with upload tables and prompt blocks for Dreamina. See the sanitized fictional walkthrough in [examples/walkthrough.md](examples/walkthrough.md).
 
 ## Limits
 
